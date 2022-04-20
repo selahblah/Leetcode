@@ -7,9 +7,7 @@ class Solution(object):
         """
         
         if target in nums:
-            return nums.index(target)
-            
+            return nums.index(target) 
         else:
             pass
-        
         return -1
