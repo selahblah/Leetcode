@@ -10,6 +10,5 @@ class Solution(object):
         for i in uniq_nums:
             n = nums.count(i)
             count.append(n)
-        for j in count:
-            if j == 1:
-                return uniq_nums[count.index(1)]
+        
+        return uniq_nums[count.index(1)]
