@@ -5,12 +5,25 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         
+        out=[]
+        for i in range(numRows):
+            out.append([])
+            out[i].append(1)
+            for j in range(1,i):
+                out[i].append(out[i-1][j-1]+out[i-1][j])
+            if i != 0:
+                out[i].append(1)
+        return out
+                    
+        
+        
+        """
         emp = [[1]]
 
         if numRows == 1:
             return emp
         else:
-            for i in range(1, numRows+1):
+            for i in range(numRows+1):
                 pas = [0]*i
                 for j in range(len(pas)):        
                     if j == 0 or j == len(pas)-1:
@@ -20,3 +33,4 @@ class Solution(object):
                 emp.append(pas)
                 
         return emp[1:]
+        """
