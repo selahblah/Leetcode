@@ -5,6 +5,7 @@ class Solution(object):
         :rtype: bool
         """
         
+        """
         dic = {}
         for n in nums:
             if n in dic:
@@ -12,12 +13,10 @@ class Solution(object):
             else:
                 dic[n] = 0
         return False
-    
+        """
                 
-
-        """
         return len(nums) != len(set(nums))
-        """
+
            
         """
         for i in range(len(nums)):
