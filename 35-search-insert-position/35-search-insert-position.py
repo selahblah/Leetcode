@@ -6,6 +6,22 @@ class Solution(object):
         :rtype: int
         """
         
+        left = 0
+        right = len(nums)-1
+        
+        while left <= right:
+            mid = (left+right)//2
+            if nums[left] < target:
+                left += 1
+            elif nums[right] > target:
+                right -= 1
+            else:
+                return mid 
+        
+        return left
+                
+        
+        """
         for i in range(len(nums)):
             if nums[i] == target:
                 return i
@@ -16,3 +32,4 @@ class Solution(object):
             else:
                 if nums[i-1] < target and target < nums[i]:
                     return i
+        """
