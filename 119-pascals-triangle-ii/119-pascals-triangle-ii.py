@@ -5,8 +5,19 @@ class Solution(object):
         :rtype: List[int]
         """
         
+        out = []
+        for i in range(rowIndex+1):
+            out.append([])
+            out[i].append(1)
+            for j in range(1,i):
+                out[i].append(out[i-1][j-1]+out[i-1][j])
+            if i != 0:
+                out[i].append(1)
+                
+        return out[rowIndex]
         
         
+        """
         emp = [[1]]
 
         if rowIndex == 0:
@@ -24,3 +35,4 @@ class Solution(object):
         emp = emp[1:]
         
         return emp[rowIndex]
+        """
