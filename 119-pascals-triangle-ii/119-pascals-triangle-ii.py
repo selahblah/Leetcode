@@ -5,6 +5,8 @@ class Solution(object):
         :rtype: List[int]
         """
         
+        
+        
         emp = [[1]]
 
         if rowIndex == 0:
