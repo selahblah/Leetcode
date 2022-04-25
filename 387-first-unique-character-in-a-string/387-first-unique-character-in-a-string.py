@@ -7,6 +7,21 @@ class Solution(object):
         
         from collections import Counter 
         
+        out = -1
+        count = Counter(s)
+        i = 0
+        
+        for word in s:
+            if count[word] == 1:
+                return i
+                break
+            else:
+                i += 1
+                
+        return -1
+        
+        
+        """
         count = Counter(s)
         value_list = list(count.values())
         key_list = list(count.keys())
@@ -19,6 +34,7 @@ class Solution(object):
                 index += 1
                 
         return -1
+        """
         
         
         """
