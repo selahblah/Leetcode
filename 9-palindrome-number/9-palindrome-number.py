@@ -5,6 +5,28 @@ class Solution(object):
         :rtype: bool
         """
         
+        sx1 = list(str(x))
+        sx2 = list(str(x)[:])
+        sx1.reverse()
+        
+        if sx1 == sx2:
+            return True
+        else:
+            return False
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        """
         A=1
         str1=str(x)
         num = []
@@ -17,3 +39,4 @@ class Solution(object):
              return True
         else:
             return False
+        """
