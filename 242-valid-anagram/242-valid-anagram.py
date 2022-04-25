@@ -6,6 +6,13 @@ class Solution(object):
         :rtype: bool
         """
         
+        if sorted(s) == sorted(t):
+            return True
+        else:
+            return False
+        
+        
+        """
         ls = list(s)
         ts = list(t)
         index = 0
@@ -21,4 +28,4 @@ class Solution(object):
             return True
         else:
             return False
-            
+        """
