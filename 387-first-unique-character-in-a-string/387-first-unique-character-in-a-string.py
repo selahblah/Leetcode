@@ -5,6 +5,23 @@ class Solution(object):
         :rtype: int
         """
         
+        from collections import Counter 
+        
+        count = Counter(s)
+        value_list = list(count.values())
+        key_list = list(count.keys())
+        index = 0
+        
+        for i in s:
+            if value_list[key_list.index(i)] == 1:
+                return index
+            else:
+                index += 1
+                
+        return -1
+        
+        
+        """
         ls = list(s)
         emp = []
         
@@ -24,5 +41,5 @@ class Solution(object):
             return len(ls)-1
         else:
             return -1
-    
+    """
         
