@@ -9,25 +9,10 @@ class Solution(object):
         """
         
         del nums1[m:]
-        nums1 += nums2
-        nums1.sort()
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        """
-        del nums1[m:]
         nums1 += nums2[:n]
         
         nums1.sort()
-        """
+        
         """
         for i in range(n):
             nums1=nums1[:m+i]
