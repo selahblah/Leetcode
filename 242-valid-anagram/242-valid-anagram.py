@@ -11,6 +11,12 @@ class Solution(object):
         else:
             return False
         
+        """
+        if collections.Counter(s) == collections.Counter(t):
+            return True
+        else:
+            return False
+        """
         
         """
         ls = list(s)
