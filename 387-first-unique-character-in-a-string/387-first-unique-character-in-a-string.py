@@ -7,7 +7,6 @@ class Solution(object):
         
         from collections import Counter 
         
-        out = -1
         count = Counter(s)
         i = 0
         
