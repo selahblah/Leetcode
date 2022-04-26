@@ -5,6 +5,34 @@ class Solution(object):
         :rtype: int
         """
         
+        from collections import Counter
+        
+        a = Counter(nums)
+        value = a.values() 
+        key =  a.keys()
+        
+        return key[value.index(1)]
+        
+                
+            
+            
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        """
         dic = {}
         
         for i in nums:
@@ -15,6 +43,7 @@ class Solution(object):
         
         for i in dic:
             return i
+        """
         
         """
         uniq_nums = list(set(nums))
