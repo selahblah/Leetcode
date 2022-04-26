@@ -5,6 +5,19 @@ class Solution(object):
         :rtype: bool
         """
         
+        return len(nums) != len(set(nums))
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         """
         dic = {}
         for n in nums:
@@ -14,9 +27,9 @@ class Solution(object):
                 dic[n] = 0
         return False
         """
-                
+        """        
         return len(nums) != len(set(nums))
-
+        """
            
         """
         for i in range(len(nums)):
