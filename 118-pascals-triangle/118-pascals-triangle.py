@@ -7,6 +7,31 @@ class Solution(object):
         
         out=[]
         for i in range(numRows):
+            out.append([1])
+            for j in range(1,i):
+                    out[i].append(out[i-1][j-1] + out[i-1][j])
+            if i != 0:
+                out[i].append(1)
+        return out
+                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        """
+        out=[]
+        for i in range(numRows):
             out.append([])
             out[i].append(1)
             for j in range(1,i):
@@ -14,7 +39,7 @@ class Solution(object):
             if i != 0:
                 out[i].append(1)
         return out
-                    
+        """    
         
         
         """
