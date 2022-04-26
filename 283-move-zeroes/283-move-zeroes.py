@@ -5,10 +5,35 @@ class Solution(object):
         :rtype: None Do not return anything, modify nums in-place instead.
         """
         
+        for i in nums:
+            if i == 0:
+                nums.remove(i)
+                nums.append(0)
+            
+            
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        """
         for i in range(len(nums))[::-1]:
             if nums[i] == 0:
                 nums.pop(i)
                 nums.append(0)
                 
-                
+        """        
                 
