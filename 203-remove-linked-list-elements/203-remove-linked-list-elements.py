@@ -16,6 +16,16 @@ class Solution(object):
         if not head:
             return head
         
+        """
+        while head and head.next:
+            if head.next.val == val:
+                head.next = head.next.next
+            else:
+                head = head.next
+                
+        return head
+        """ 
+        
         next_node = head  
         while next_node and next_node.next:
             if next_node.next.val == val:
