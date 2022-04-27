@@ -11,6 +11,21 @@ class Solution(object):
         :rtype: bool
         """
         
+        if not head:
+            return False
+        
+        slow = head
+        fast = head.next
+        
+        while fast != slow:
+            if fast == None or fast.next == None:
+                return False
+            fast = fast.next.next
+            slow = slow.next
+        
+        return True
+    
+        """
         v = set()
         
         while head:
@@ -20,3 +35,4 @@ class Solution(object):
             head = head.next
         
         return False
+        """
