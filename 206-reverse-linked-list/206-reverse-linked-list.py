@@ -11,12 +11,11 @@ class Solution(object):
         """
         
         prev = None 
-        
+
         while head != None:
             next_node = head.next
-            head.next = prev 
+            head.next = prev
             prev = head
             head = next_node
-        
+
         return prev
-            
