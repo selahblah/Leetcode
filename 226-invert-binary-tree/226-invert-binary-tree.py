@@ -10,7 +10,6 @@ class Solution(object):
         :type root: TreeNode
         :rtype: TreeNode
         """
-        
         if not root:
             return root
         
@@ -21,4 +20,3 @@ class Solution(object):
         root.right = left
         
         return root
-        
