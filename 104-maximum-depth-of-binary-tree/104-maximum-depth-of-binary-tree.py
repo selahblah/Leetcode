@@ -1,47 +1,17 @@
-class Solution(object):
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        
+        return self.sol(root, depth=0)
     
-    def maxDepth(self, root):
-        return self.solve(root)
-
-    def solve(self,root,depth = 0):
+    def sol(self, root, depth=0):
+        
         if not root:
             return depth
-        return max(self.solve(root.left,depth+1),self.solve(root.right,depth+1))
-            
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        """
-        if not root:
-            print ("000")
-            return 0
-    
-        return max(self.maxDepth(root.right),self.maxDepth(root.left))+1
-        """
-        
-        
-        """
-        return self.solve(root)
-    
-    def solve(self, root, depth=0):
-        if not root:
-            return depth
-        return max(self.solve(root.left,depth+1),self.solve(root.right,depth+1))
-        """
-        
-        
-        
-        
-        
+        return max(self.sol(root.left, depth+1), self.sol(root.right, depth+1)) 
