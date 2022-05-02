@@ -16,8 +16,10 @@ class Solution(object):
                     stack.pop()
                 else:
                     return False
+                    break
             else:
                 return False
+                break
             
         if not stack:
             return True
