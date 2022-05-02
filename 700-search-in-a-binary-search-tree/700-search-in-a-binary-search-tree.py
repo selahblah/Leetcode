@@ -17,6 +17,8 @@ class Solution(object):
         if root.val == val:
             return root
         if root.val > val:
-            return self.searchBST(root.left,val)
+            root = root.left
+            return self.searchBST(root,val)
         if root.val < val:
-            return self.searchBST(root.right,val)
+            root = root.right
+            return self.searchBST(root,val)
