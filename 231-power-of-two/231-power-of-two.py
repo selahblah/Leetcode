@@ -5,8 +5,16 @@ class Solution(object):
         :rtype: bool
         """
         
+        """
         return n>0 and n&(n-1) == 0 
+        """
     
+        m = 1
+        while m < n:
+            m <<= 1
+        return m == n
+        
+        
         """
         if n <= 0:
             return False
