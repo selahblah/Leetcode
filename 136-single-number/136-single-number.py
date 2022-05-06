@@ -1,56 +1,11 @@
-class Solution(object):
-    def singleNumber(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
         
-        from collections import Counter
-        
-        a = Counter(nums)
-        value = a.values() 
-        key =  a.keys()
-        
-        return key[value.index(1)]
-        
-                
-            
-            
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        """
-        dic = {}
+        has = []
         
         for i in nums:
-            if i not in dic: 
-                dic[i]=i
+            if not i in has:
+                has.append(i)
             else:
-                del dic[i]
-        
-        for i in dic:
-            return i
-        """
-        
-        """
-        uniq_nums = list(set(nums))
-        count = []
-        for i in uniq_nums:
-            n = nums.count(i)
-            count.append(n)
-        
-        return uniq_nums[count.index(1)]
-        """
+                has.remove(i)
+        return has[0]
