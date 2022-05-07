@@ -5,7 +5,8 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         
-        intervals.sort(key = lambda i : i[0])
+        intervals.sort()
+        #intervals.sort(key = lambda i : i[0])
         output = [intervals[0]]
         
         for start, end in intervals[1:]:
