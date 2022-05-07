@@ -5,6 +5,17 @@ class Solution(object):
         :rtype: int
         """
         
+        one, two = 1, 1
+        
+        for i in range(n-1):
+            temp = one
+            one = one + two
+            two = temp
+            
+        return one
+        
+        
+        """
         if n<=2: 
             return n
         
@@ -14,6 +25,7 @@ class Solution(object):
         for i in range(2,n):
             dp[i] = dp[i-1]+dp[i-2]
         return dp[n-1]
+        """
         
         """
         count = 0
