@@ -1,40 +1,23 @@
-class Solution(object):
-    def climbStairs(self, n):
+class Solution:
+    def climbStairs(self, n: int) -> int:
         """
-        :type n: int
-        :rtype: int
-        """
-        
         one, two = 1, 1
         
-        for i in range(n-1):
-            temp = one
+        while i <= n:
+            tem = one
             one = one + two
-            two = temp
+            two = tem
             
         return one
-        
-        
         """
-        if n<=2: 
-            return n
         
-        dp = [0]*(n)
+        dp = [0]*(n+1)
         dp[0] = 1
-        dp[1] = 2
-        for i in range(2,n):
+        dp[1] = 1
+        
+        for i in range(2,n+1):
             dp[i] = dp[i-1]+dp[i-2]
-        return dp[n-1]
-        """
+        return dp[n]
         
-        """
-        count = 0
         
-        for x in range(n+1):
-            for y in range(n//2+1):
-                if x + 2*y == n:
-                    count += 1
-                elif x + 2*y < n:
-                    pass
-        return count
-        """   
+        
