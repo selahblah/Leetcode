@@ -1,26 +1,24 @@
-class Solution(object):
-    def sortColors(self, nums):
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
         """
-        :type nums: List[int]
-        :rtype: None Do not return anything, modify nums in-place instead.
+        Do not return anything, modify nums in-place instead.
         """
-        l,r = 0, len(nums)-1
-        i = 0
+        def switch(j, s):
+            tem = nums[j]
+            nums[j] = nums[s]
+            nums[s] = tem
+            
+        left = 0
+        right = len(nums)-1
         
-        def swap(i,j):
-            tmp = nums[i]
-            nums[i] = nums[j]
-            nums[j] = tmp
-            
-        while i <= r:
+        i = 0
+        while i <= right:
             if nums[i] == 0:
-                swap(i,l)
-                l += 1
+                switch(left,i)
+                left += 1
             elif nums[i] == 2:
-                swap(i,r)
-                r -= 1
-                i -= 1
+                switch(right,i)
+                right -= 1
+                i -= 1 
             i += 1
-            
-                
-            
+        
