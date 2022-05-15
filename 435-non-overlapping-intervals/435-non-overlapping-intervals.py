@@ -1,13 +1,32 @@
-class Solution:
-    def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
-        
-        intervals.sort()
+class Solution(object):
+    def eraseOverlapIntervals(self, intervals):
+        """
+        :type intervals: List[List[int]]
+        :rtype: int
+        """
+        intervals = sorted(intervals)
         count = 0
-        lastend = intervals[0][1]
+        pre_end = intervals[0][1]
+        
         for start, end in intervals[1:]:
-            if start >= lastend:
-                lastend = end
-            else:
+            if start < pre_end: 
                 count += 1
-                lastend = min(end, lastend)
+                pre_end = min(end, pre_end)
+            else: pre_end = end
         return count
+                
+                
+
+            
+        
+        while i < len(intervals)-1:
+            if intervals[i][1] > intervals[i+1][0]:
+                res += 1
+                i += 2
+            else: i += 1
+        
+        if intervals[-2][1] > intervals[-1][0]:
+            res += 1
+        
+        return res
+                
