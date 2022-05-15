@@ -1,42 +1,23 @@
-class Solution:
-    def findAnagrams(self, s: str, p: str) -> List[int]:
-        from collections import Counter
-    
-        res = []
-        M, N = len(s), len(p)
-        counterS = Counter(p)
-        counterW = Counter(s[:N-1])
-        
-        for i in range(N-1,M):
-            indx = i - (N-1)
-            counterW[s[i]] += 1
-            
-            if counterW == counterS:
-                res.append(indx)
-            counterW[s[indx]] -= 1
-            if counterW[s[indx]] == 0:
-                counterW.pop(s[indx])
-        
-        return res
-            
-        
+class Solution(object):
+    def findAnagrams(self, s, p):
         """
+        :type s: str
+        :type p: str
+        :rtype: List[int]
+        """
+        i, n = 0, len(p)
+        countW = Counter(p)
+        countS = Counter(s[:n-1])
         res = []
-        s, p = list(s), list(p)
         
-        for i in range(len(s)-len(p)+1):
-            j = 0
-            tem = s
-            tem = tem[i:i+len(p)]
-            if s[i] not in p:
-                continue
-            while j < len(p):
-                if p[j] in tem:
-                    tem.remove(p[j])
-                    j += 1
-                else: break
-                if not tem: res.append(i)
+        
+        while i <= len(s)-n:
+            countS[s[i+n-1]] += 1
+            if countS == countW: res.append(i)
+            countS[s[i]] -= 1
+            if countS[s[i]] ==0: countS.pop(s[i])
+            i += 1
+            
         return res
-        """    
-                
-                
+            
+        
