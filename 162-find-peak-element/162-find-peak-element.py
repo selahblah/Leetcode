@@ -1,32 +1,17 @@
-class Solution:
-    def findPeakElement(self, nums: List[int]) -> int:
-        
+class Solution(object):
+    def findPeakElement(self, nums):
         """
-        O(logn) time.......
-        No max
-        No >
+        :type nums: List[int]
+        :rtype: int
         """
-        
         left = 0
         right = len(nums)-1
         
         while left < right:
-            mid = left + (right-left)//2
+            mid = (right+left)//2
             if nums[mid] < nums[mid+1]:
-                left = mid+1
-            else:
-                right = mid
-        return left
-        
-        """
-        left = 0
-        right = len(nums)-1
-        
-        while left < right:
-            mid = (left+right)//2
-            if nums[mid] > nums[mid+1]:
-                right = mid
+                left = mid + 1
             else: 
-                left = mid +1
+                right = mid
+                
         return left
-        """
