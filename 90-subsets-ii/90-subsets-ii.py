@@ -1,12 +1,8 @@
-class Solution(object):
-    def subsetsWithDup(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
+class Solution:
+    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+        
         nums.sort()
         res = [[]]
         for i in nums:
-            res += [j+[i] for j in res]
-            
-        return [list(l) for l in set([tuple(l) for l in res])]
+            res += [[i]+j for j in res]
+        return [list(r) for r in set(tuple(l) for l in res)]
