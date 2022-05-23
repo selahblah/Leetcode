@@ -5,9 +5,6 @@ class Solution(object):
         :rtype: int
         
         """
-        
-        
-        N = len(nums)
         tem = [nums[0]]
         
         for n in nums:
