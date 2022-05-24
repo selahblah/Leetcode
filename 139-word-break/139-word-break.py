@@ -1,30 +1,18 @@
-class Solution(object):
-    def wordBreak(self, s, wordDict):
-        """
-        :type s: str
-        :type wordDict: List[str]
-        :rtype: bool
-        """
+class Solution:
+    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+        
         N = len(s)
         dp = [False]*(N+1)
         dp[0] = True
+        tem = ""
         
-        for start in range(len(s)):
-            if not dp[start]: continue
-            for end in range(start+1,len(dp)):
-                if s[start:end] in wordDict: dp[end] = True
-        
+        for start in range(N):
+            if dp[start] == False : continue
+            else: 
+                for end in range(start+1,N+1):
+                    if s[start:end] in wordDict:
+                        dp[end] = True
+        print(dp)
+                        
         return dp[-1]
-        
-        """
-        sorted(wordDict,key=len)
-        i = 0
-        while i < len(wordDict):
-            if wordDict[i] in s:
-                s = s.replace(wordDict[i],"")
-                print(s)
-            else: return False
-            i += 1
-        
-        return True
-        """
+                    
