@@ -1,26 +1,13 @@
-class Solution:
-    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        
-        left, right = 0, len(matrix[0])-1
-        top, bottom = 0, len(matrix)-1
-        i = 0
-        
-        while left <= right and top <= bottom:
-            if matrix[bottom][left] == target:
-                return True
-            if matrix[bottom][left] > target:
-                bottom -= 1
-            else:
-                left += 1
-            
-        return False
-
+class Solution(object):
+    def searchMatrix(self, matrix, target):
         """
-        for li in matrix:
-            if target <= li[-1]:
-                if target in li:
-                    return True
-            if target <= li[0]:
-                break
-        return False
+        :type matrix: List[List[int]]
+        :type target: int
+        :rtype: bool
         """
+        i,j = len(matrix)-1, 0
+        
+        while i > -1 and j < len(matrix[0]):
+            while i>-1 and matrix[i][j] > target: i -= 1
+            while j<len(matrix[0]) and matrix[i][j] < target: j += 1
+            return True if i > -1 and j < len(matrix[0]) and matrix[i][j] == target else False
