@@ -1,13 +1,12 @@
-class Solution(object):
-    def search(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: int
-        """
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        left, right = 0, len(nums)-1
         
-        if target in nums:
-            return nums.index(target) 
-        else:
-            pass
+        while left <= right:
+            mid = (left + right)//2
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] > target: right -= 1
+            else: left += 1
+        
         return -1
