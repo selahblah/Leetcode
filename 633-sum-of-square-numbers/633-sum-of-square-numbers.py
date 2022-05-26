@@ -4,6 +4,7 @@ class Solution(object):
         :type c: int
         :rtype: bool
         """
+        """
         sqr = int(sqrt(c))
         s = set([a*a for a in range(sqr+1)])
         
@@ -11,10 +12,10 @@ class Solution(object):
             b = c-a
             if b in s: return True
         return False
-            
-        
         """
-        l,r = 0, int(c/2)+1
+        
+        
+        l,r = 0, int(sqrt(c))+1
         while l <= r:
             sum2 = l**2 + r**2
             if sum2 == c: return True
@@ -22,5 +23,5 @@ class Solution(object):
             else: l += 1
         
         return False
-        """
+        
             
