@@ -4,7 +4,16 @@ class Solution(object):
         :type prices: List[int]
         :rtype: int
         """
+        if len(prices)==1: return 0
+        minn, res = prices[0], 0
         
+        for sell in prices[1:]:
+            res = max(res, sell-minn)
+            minn = min(minn,sell)
+        return res
+            
+        
+        """
         heap = []
         profit = 0
         
@@ -15,3 +24,4 @@ class Solution(object):
                 profit = price-heap[0]
                 
         return profit
+        """
