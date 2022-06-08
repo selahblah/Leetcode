@@ -4,6 +4,16 @@ class Solution(object):
         :type arr: List[int]
         :rtype: int
         """
+        
+        N = len(arr)
+        total = 0
+        
+        for k in range(1,N+1,2):
+            for t in range(N-k+1):
+                total += sum(arr[t:t+k])
+        return total
+        
+        """
         res = sum(arr)
         tem = 3
         while tem <= len(arr):
@@ -16,3 +26,4 @@ class Solution(object):
             tem += 2
         
         return res
+        """
