@@ -7,6 +7,7 @@ class Solution(object):
         buy, profit = prices[0], 0
         for i in prices[1:]:
             profit = max(profit, i-buy)
-            if i < buy: buy = i
+            buy = min(i,buy)
+            # if i < buy: buy = i
         return profit
                 
