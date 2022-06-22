@@ -1,24 +1,34 @@
-class Solution(object):
-    def floodFill(self, image, sr, sc, newColor):
-        """
-        :type image: List[List[int]]
-        :type sr: int
-        :type sc: int
-        :type newColor: int
-        :rtype: List[List[int]]
-        """
+class Solution:
+    def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
+        tem = image[sr][sc]
+        if tem == color: return image
         
-        start_color = image[sr][sc]
-        if start_color == newColor:
-            return image
-        direc=[(0,0),(-1,0),(0,1),(1,0),(0,-1)]
+        r,c = len(image), len(image[0])
+        visit = []
+        direction = [(-1,0),(0,1),(0,0),(1,0),(0,-1)]
         
-        row, col = len(image), len(image[0])
-        def dfs(x,y):
-            for dx, dy in direc:
-                new_x, new_y = x+dx, y+dy
-                if 0 <= new_x < row and 0 <= new_y < col and image[new_x][new_y] == start_color:
-                    image[new_x][new_y]=newColor
-                    dfs(new_x,new_y)
+        def dfs(sr,sc):
+            for i,j in direction:
+                new_sr, new_sc = sr + i, sc + j
+                if -1<new_sr<r and -1<new_sc<c and (new_sr,new_sc) not in visit and image[new_sr][new_sc] == tem:
+                    visit.append((new_sr,new_sc))
+                    image[new_sr][new_sc] = color
+                    dfs(new_sr,new_sc)
             return image
+        
         return dfs(sr,sc)
+        
+        """
+        tem = image[sr][sc]
+        image[sr][sc] = color
+        visit = []
+        direction = [[-1,-1],[-1,1],[1,1],[1,-1]]
+        while -1<sr<len(image) and -1<sc<len(image[0]):
+            for i,j in direction:
+                sr += i
+                sc += j
+                if -1<sr<len(image) and -1<sc<len(image[0]) and [sr,sc] not in visit and image[sr][sc] == tem:
+                    visit.append([sr,sc])
+                    image[sr][sc] = color
+        return image
+        """
