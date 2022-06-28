@@ -4,29 +4,12 @@ class Solution(object):
         :type intervals: List[List[int]]
         :rtype: int
         """
-        intervals = sorted(intervals)
-        count = 0
-        pre_end = intervals[0][1]
-        
-        for start, end in intervals[1:]:
-            if start < pre_end: 
-                count += 1
-                pre_end = min(end, pre_end)
-            else: pre_end = end
-        return count
-                
-                
-
-            
-        
-        while i < len(intervals)-1:
-            if intervals[i][1] > intervals[i+1][0]:
+        intervals.sort()
+        res = 0
+        tem = intervals[0]
+        for i,j in intervals[1:]:
+            if tem[0] <= i < tem[1]: 
                 res += 1
-                i += 2
-            else: i += 1
-        
-        if intervals[-2][1] > intervals[-1][0]:
-            res += 1
-        
+                tem[1] = min(tem[1],j)
+            else: tem = [i,j]
         return res
-                
