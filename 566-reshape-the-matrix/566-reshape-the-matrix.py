@@ -7,16 +7,15 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         if len(mat)*len(mat[0]) != r*c: return mat
-        new_c = len(mat)*len(mat[0])//r
-        i,res = 0,[]
-        
-        mat = [x for xs in mat for x in xs]
-        
-        while i < len(mat):
-            tem = []
-            while i < len(mat) and len(tem) < new_c:
-                tem.append(mat[i])
-                i += 1
-            res.append(tem)
+        res = []
+        tem = deque()
+        for li in mat:
+            for i in li: tem.append(i)
+                
+        C = len(tem)//r
+        for row in range(r):
+            li = []
+            while len(li)<C:
+                li.append(tem.popleft())
+            res.append(li)
         return res
-            
