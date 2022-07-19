@@ -6,7 +6,7 @@ class Solution(object):
         """
         dic = {}
         for n in nums:
-            if n in dic.keys(): 
+            if dic.get(n):
                 dic[n] -= 1
                 del dic[n]
             else: dic[n] = 1
