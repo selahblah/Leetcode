@@ -1,5 +1,15 @@
 class Solution:
     def checkString(self, s: str) -> bool:
+        b = False
+        for x in s:
+            if x == 'b':
+                b = True
+            else:
+                if b: return False
+        return True
+                
+        
+        """
         num = float("inf")
         for i in range(len(s)):
             if s[i] == 'b':
@@ -10,4 +20,5 @@ class Solution:
         for j in range(num,len(s)):
             if s[j] == 'a': return False
         return True
+        """
             
