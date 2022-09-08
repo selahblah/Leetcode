@@ -1,11 +1,14 @@
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        
-        has = []
-        
-        for i in nums:
-            if not i in has:
-                has.append(i)
-            else:
-                has.remove(i)
-        return has[0]
+        res = 0 # n ^ 0 = n
+        for n in nums:
+            res = n ^ res
+        return res
+    
+        """
+        res = []
+        for n in nums:
+            if n in res: res.remove(n)
+            else: res.append(n)
+        return res[0]
+        """
