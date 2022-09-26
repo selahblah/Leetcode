@@ -1,12 +1,14 @@
 class Solution:
     def findAnagrams(self, s: str, p: str) -> List[int]:
+        i,l = 0,len(p)
+        dic,window = Counter(p),Counter(s[i:i+l])
         res = []
-        count = Counter(p)
-        window = Counter(s[:len(p)-1])
-        for i in range(len(p)-1,len(s)):
-            window[s[i]] = window.get(s[i],0) + 1
-            if window == count: res.append(i-len(p)+1)
-            window[s[i-len(p)+1]] -= 1
-            if window[s[i-len(p)+1]] == 0: del(window[s[i-len(p)+1]])
+        while i < len(s)-l+1:
+            if window == dic: res.append(i)
+            if window[s[i]] == 1: del window[s[i]]
+            else: window[s[i]] -= 1
+            i += 1
+            if i+l-1 < len(s): window[s[i+l-1]] = window.get(s[i+l-1],0) + 1
+            
         return res
             
